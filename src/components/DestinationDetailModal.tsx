@@ -1,10 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Calendar, Coins, Languages, MapPin, Sparkles, X } from 'lucide-react';
 import type { Destination } from '../types';
 import { RemoteImage } from './ui/RemoteImage';
 import { FamousPlacesGrid } from './FamousPlacesGrid';
 import { WeatherWidget } from './WeatherWidget';
+import { PlaceCardSkeleton } from './ui/Skeletons';
+import { generateDestinationProfile, type DestinationProfile } from '../services/geminiService';
 
 interface DestinationDetailModalProps {
   destination: Destination | null;
@@ -14,6 +16,9 @@ interface DestinationDetailModalProps {
 
 export function DestinationDetailModal({ destination, onClose, onPlanTrip }: DestinationDetailModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [profile, setProfile] = useState<DestinationProfile | null>(null);
+  const [profileLoading, setProfileLoading] = useState(false);
+  const fetchedForId = useRef<string | null>(null);
 
   useEffect(() => {
     if (!destination) return;
@@ -29,9 +34,53 @@ export function DestinationDetailModal({ destination, onClose, onPlanTrip }: Des
     };
   }, [destination, onClose]);
 
+  useEffect(() => {
+    if (!destination || !destination.isDynamic) return;
+    if (fetchedForId.current === destination.id) return;
+
+    const id = destination.id;
+    fetchedForId.current = id;
+    setProfile(null);
+    setProfileLoading(true);
+
+    generateDestinationProfile(destination.name, destination.country).then((result) => {
+      if (fetchedForId.current === id) {
+        setProfile(result);
+        setProfileLoading(false);
+      }
+    });
+  }, [destination]);
+
+  const displayDestination = useMemo<Destination | null>(() => {
+    if (!destination) return null;
+    if (destination.isDynamic && profile) {
+      return {
+        ...destination,
+        tagline: profile.tagline,
+        overview: profile.overview,
+        bestSeason: profile.bestSeason,
+        currency: profile.currency,
+        language: profile.language,
+        places: profile.places,
+      };
+    }
+    return destination;
+  }, [destination, profile]);
+
+  const isEnriching = Boolean(destination?.isDynamic && profileLoading);
+
+  const infoChips = displayDestination
+    ? [
+        { icon: Calendar, label: 'Best Season', value: displayDestination.bestSeason },
+        { icon: Coins, label: 'Currency', value: displayDestination.currency },
+        { icon: Languages, label: 'Language', value: displayDestination.language },
+        { icon: MapPin, label: 'Timezone', value: displayDestination.timezone },
+      ].filter((chip) => chip.value)
+    : [];
+
   return (
     <AnimatePresence>
-      {destination && (
+      {destination && displayDestination && (
         <motion.div
           className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6"
           initial={{ opacity: 0 }}
@@ -77,7 +126,8 @@ export function DestinationDetailModal({ destination, onClose, onPlanTrip }: Des
                   <span className="text-lg leading-none">{destination.flag}</span>
                   <span className="flex items-center gap-1">
                     <MapPin className="h-3.5 w-3.5" />
-                    {destination.country} · {destination.continent}
+                    {destination.country}
+                    {destination.continent ? ` · ${destination.continent}` : ''}
                   </span>
                 </div>
                 <h2
@@ -90,13 +140,29 @@ export function DestinationDetailModal({ destination, onClose, onPlanTrip }: Des
             </div>
 
             <div className="flex-1 overflow-y-auto px-6 py-6 sm:px-8 sm:py-8">
-              <p className="text-balance text-lg leading-relaxed text-obsidian-200">{destination.overview}</p>
+              {isEnriching ? (
+                <div className="space-y-2.5" aria-label="Generating destination overview">
+                  <div className="h-4 w-full rounded shimmer-bg" />
+                  <div className="h-4 w-5/6 rounded shimmer-bg" />
+                  <div className="h-4 w-2/3 rounded shimmer-bg" />
+                </div>
+              ) : (
+                <p className="text-balance text-lg leading-relaxed text-obsidian-200">
+                  {displayDestination.overview}
+                </p>
+              )}
 
               <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                <InfoChip icon={Calendar} label="Best Season" value={destination.bestSeason} />
-                <InfoChip icon={Coins} label="Currency" value={destination.currency} />
-                <InfoChip icon={Languages} label="Language" value={destination.language} />
-                <InfoChip icon={MapPin} label="Timezone" value={destination.timezone} />
+                {isEnriching
+                  ? Array.from({ length: 4 }).map((_, i) => (
+                      <div key={i} className="rounded-xl border border-obsidian-800 bg-obsidian-900/60 p-3">
+                        <div className="h-3 w-1/2 rounded shimmer-bg" />
+                        <div className="mt-2 h-4 w-3/4 rounded shimmer-bg" />
+                      </div>
+                    ))
+                  : infoChips.map((chip) => (
+                      <InfoChip key={chip.label} icon={chip.icon} label={chip.label} value={chip.value} />
+                    ))}
               </div>
 
               <div className="mt-8">
@@ -109,11 +175,19 @@ export function DestinationDetailModal({ destination, onClose, onPlanTrip }: Des
 
               <div className="mt-10">
                 <h3 className="mb-4 font-display text-2xl font-medium text-white">Notable Places</h3>
-                <FamousPlacesGrid places={destination.places} />
+                {isEnriching ? (
+                  <div className="flex gap-5 overflow-x-auto pb-4 pt-1">
+                    <PlaceCardSkeleton />
+                    <PlaceCardSkeleton />
+                    <PlaceCardSkeleton />
+                  </div>
+                ) : (
+                  <FamousPlacesGrid places={displayDestination.places} />
+                )}
               </div>
 
               <button
-                onClick={() => onPlanTrip(destination)}
+                onClick={() => onPlanTrip(displayDestination)}
                 className="mt-8 flex w-full items-center justify-center gap-2 rounded-full bg-amber-400 py-3.5 text-sm font-semibold uppercase tracking-wide text-obsidian-950 shadow-glow-amber transition hover:bg-amber-300"
               >
                 <Sparkles className="h-4 w-4" aria-hidden="true" />

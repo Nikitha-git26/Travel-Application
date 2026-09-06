@@ -1,4 +1,4 @@
-import type { ChatMessage, Itinerary, ItineraryDay, ItineraryRequest, ItinerarySlot } from '../types';
+import type { ChatMessage, Itinerary, ItineraryDay, ItineraryRequest, ItinerarySlot, Place } from '../types';
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || import.meta.env.VITE_GEMINI_KEY;
 const MODEL = 'gemini-2.0-flash';
@@ -79,6 +79,137 @@ function fallbackChatReply(message: string): string {
   }
 
   return "I can help with budgets, best times to visit, safety, local etiquette, packing, or what to prioritize once you're there. Try asking about a specific destination — for example, \"What's a good budget for Kyoto?\" or \"Is Marrakech safe to walk around at night?\" — and I'll tailor the answer.";
+}
+
+export interface DestinationProfile {
+  tagline: string;
+  overview: string;
+  bestSeason: string;
+  currency: string;
+  language: string;
+  places: Place[];
+}
+
+const PLACE_FALLBACK_IMAGES = [
+  'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1974&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1974&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1974&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1974&auto=format&fit=crop',
+];
+
+const DESTINATION_PROFILE_SCHEMA = {
+  type: 'OBJECT',
+  properties: {
+    tagline: { type: 'STRING' },
+    overview: { type: 'STRING' },
+    bestSeason: { type: 'STRING' },
+    currency: { type: 'STRING' },
+    language: { type: 'STRING' },
+    places: {
+      type: 'ARRAY',
+      items: {
+        type: 'OBJECT',
+        properties: {
+          name: { type: 'STRING' },
+          category: { type: 'STRING' },
+          description: { type: 'STRING' },
+          visitDuration: { type: 'STRING' },
+          tip: { type: 'STRING' },
+        },
+        required: ['name', 'category', 'description', 'visitDuration', 'tip'],
+      },
+    },
+  },
+  required: ['tagline', 'overview', 'bestSeason', 'currency', 'language', 'places'],
+};
+
+const destinationProfileCache = new Map<string, DestinationProfile>();
+
+export async function generateDestinationProfile(name: string, country: string): Promise<DestinationProfile> {
+  const cacheKey = `${name.toLowerCase()}|${country.toLowerCase()}`;
+  const cached = destinationProfileCache.get(cacheKey);
+  if (cached) return cached;
+
+  let profile: DestinationProfile;
+
+  try {
+    const prompt = `Generate an editorial travel profile for ${name}, ${country}.
+Include a short, evocative one-line tagline; a 2-3 sentence overview capturing its character and appeal; the best season to visit; its primary currency; and its primary spoken language.
+Also list 3-4 genuinely notable, real attractions or places to visit there, each with a category, a vivid 1-2 sentence description, an estimated visit duration, and a practical visitor tip.`;
+
+    const text = await callGemini(
+      [{ role: 'user', parts: [{ text: prompt }] }],
+      'You are a structured JSON travel-profile generator for a travel app. Respond only with valid JSON matching the given schema.',
+      { responseMimeType: 'application/json', responseSchema: DESTINATION_PROFILE_SCHEMA, temperature: 0.8 }
+    );
+
+    const parsed = JSON.parse(text);
+    profile = {
+      tagline: parsed.tagline,
+      overview: parsed.overview,
+      bestSeason: parsed.bestSeason,
+      currency: parsed.currency,
+      language: parsed.language,
+      places: (parsed.places as Array<Record<string, string>>).slice(0, 4).map((p, i) => ({
+        id: `${cacheKey}-place-${i}`,
+        name: p.name,
+        category: p.category,
+        description: p.description,
+        visitDuration: p.visitDuration,
+        tip: p.tip,
+        imageQuery: `${p.name} ${name}`,
+        fallbackImage: PLACE_FALLBACK_IMAGES[i % PLACE_FALLBACK_IMAGES.length],
+      })),
+    };
+  } catch (err) {
+    console.warn('[geminiService] destination profile fallback engaged:', err);
+    profile = buildFallbackProfile(name, country, cacheKey);
+  }
+
+  destinationProfileCache.set(cacheKey, profile);
+  return profile;
+}
+
+function buildFallbackProfile(name: string, country: string, cacheKey: string): DestinationProfile {
+  return {
+    tagline: `Discover ${name}`,
+    overview: `${name} is a destination in ${country} waiting to be explored — from its local streets and markets to its natural surroundings and hidden viewpoints. Check the live weather above and start planning your visit.`,
+    bestSeason: 'Varies — check the live forecast above before you go',
+    currency: 'Local currency',
+    language: 'Local language',
+    places: [
+      {
+        id: `${cacheKey}-place-0`,
+        name: 'Historic Center',
+        category: 'Landmark',
+        description: `The heart of ${name}, where local life and history intersect.`,
+        visitDuration: '1-2 hours',
+        tip: 'Ask locals for their favorite nearby spot — it often beats the guidebook picks.',
+        imageQuery: `${name} landmark`,
+        fallbackImage: PLACE_FALLBACK_IMAGES[0],
+      },
+      {
+        id: `${cacheKey}-place-1`,
+        name: 'Local Market',
+        category: 'Market',
+        description: `A lively spot to sample regional food and crafts in ${name}.`,
+        visitDuration: '1 hour',
+        tip: 'Go with a light appetite and bring some small cash.',
+        imageQuery: `${name} market`,
+        fallbackImage: PLACE_FALLBACK_IMAGES[1],
+      },
+      {
+        id: `${cacheKey}-place-2`,
+        name: 'Scenic Viewpoint',
+        category: 'Nature',
+        description: `A well-loved spot for taking in the surrounding views of ${name}.`,
+        visitDuration: '45 minutes',
+        tip: 'Best visited near sunrise or sunset for the softest light.',
+        imageQuery: `${name} scenic view`,
+        fallbackImage: PLACE_FALLBACK_IMAGES[2],
+      },
+    ],
+  };
 }
 
 const ITINERARY_SCHEMA = {

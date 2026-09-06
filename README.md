@@ -34,6 +34,12 @@ configured, via deterministic fallback data and curated imagery.
   or continent) plus multi-select interest filter pills (Beaches,
   Culture, Alpine, Gastronomy, and more), with skeleton loaders and a
   polished empty state.
+- **Dynamic Global Search** — Search any place on Earth, not just the
+  curated catalog. Unmatched queries resolve live via the OpenWeather
+  Geocoding API, fetch real-time weather and imagery, and generate an
+  AI editorial profile (overview, best season, currency, language, and
+  3–4 notable places) on demand — with a polished skeleton state while
+  generating and a clean placeholder profile if the AI call fails.
 - **Destination Detail View** — A rich modal per destination with
   overview, best season, currency, language, timezone, live weather, and
   notable places.

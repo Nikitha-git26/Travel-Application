@@ -38,7 +38,7 @@ export interface Destination {
   id: string;
   name: string;
   country: string;
-  continent: Continent;
+  continent?: Continent;
   flag: string;
   tagline: string;
   overview: string;
@@ -52,6 +52,8 @@ export interface Destination {
   fallbackHeroImage: string;
   avgTemp: number;
   places: Place[];
+  /** True for destinations resolved live from a search query rather than the curated seed catalog. */
+  isDynamic?: boolean;
 }
 
 export type WeatherCondition =
