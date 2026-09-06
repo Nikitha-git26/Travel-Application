@@ -32,12 +32,18 @@ export interface Place {
   tip: string;
   imageQuery: string;
   fallbackImage: string;
+  /** Google Maps search URL. Computed on demand from name + destination if omitted. */
+  mapsUrl?: string;
 }
 
 export interface Destination {
   id: string;
   name: string;
+  /** State / province, where applicable (e.g. "Rajasthan" for Jaipur). */
+  state?: string;
   country: string;
+  /** ISO 3166-1 alpha-2 country code, e.g. "IN". */
+  countryCode?: string;
   continent?: Continent;
   flag: string;
   tagline: string;

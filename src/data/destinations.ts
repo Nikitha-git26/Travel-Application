@@ -653,6 +653,726 @@ export const destinations: Destination[] = [
       },
     ],
   },
+  {
+    id: 'goa',
+    name: 'Goa',
+    state: 'Goa',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'Sun-soaked beaches, Portuguese heritage, and round-the-clock rhythm',
+    overview:
+      "India's smallest state packs colonial-era churches, spice-scented markets, and a coastline that shifts from backpacker shacks in the south to beach clubs in the north — all wrapped in an unhurried, tropical pace of life.",
+    bestSeason: 'November–February',
+    currency: 'Indian Rupee (INR)',
+    language: 'Konkani, English',
+    timezone: 'GMT+5:30',
+    tags: ['Beaches', 'Nightlife', 'Gastronomy'],
+    coordinates: { lat: 15.2993, lon: 74.124 },
+    heroImageQuery: 'Goa India beach coastline',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 27,
+    places: [
+      {
+        id: 'basilica-of-bom-jesus',
+        name: 'Basilica of Bom Jesus',
+        category: 'Basilica',
+        description:
+          'A UNESCO World Heritage baroque church in Old Goa holding the mortal remains of St. Francis Xavier, its ornate facade one of the finest examples of Portuguese colonial architecture in Asia.',
+        visitDuration: '45 minutes',
+        tip: 'Dress modestly — shoulders and knees covered — to enter respectfully.',
+        imageQuery: 'Basilica of Bom Jesus Goa India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'fort-aguada',
+        name: 'Fort Aguada',
+        category: 'Fort',
+        description:
+          'A 17th-century Portuguese fort perched above the Arabian Sea, built to defend against Dutch and Maratha naval attacks, with a lighthouse still standing watch over Sinquerim Beach.',
+        visitDuration: '1 hour',
+        tip: 'Time your visit for sunset — the sea views from the ramparts are best in golden light.',
+        imageQuery: 'Fort Aguada Goa India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'dudhsagar-falls',
+        name: 'Dudhsagar Falls',
+        category: 'Waterfall',
+        description:
+          'A four-tiered waterfall cascading over 300 meters through the Western Ghats, its milky-white flow giving it the name "Sea of Milk."',
+        visitDuration: '3–4 hours',
+        tip: 'Visit just after monsoon (Oct–Dec) for the fullest flow, and book a jeep safari in advance.',
+        imageQuery: 'Dudhsagar Falls Goa India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1499552444837-3ba32d5a8b1c?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'palolem-beach',
+        name: 'Palolem Beach',
+        category: 'Beach',
+        description:
+          'A crescent-shaped cove in South Goa lined with palm trees and low-key beach shacks, far calmer than the party beaches up north.',
+        visitDuration: '2–3 hours',
+        tip: 'Kayak out at dusk for a chance to spot bioluminescent plankton in the water.',
+        imageQuery: 'Palolem Beach Goa India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1587922546307-776227941871?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'assam',
+    name: 'Assam',
+    state: 'Assam',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'One-horned rhinos, river islands, and the world\'s finest tea gardens',
+    overview:
+      "Cradled by the Brahmaputra River, Assam is India's gateway to the Northeast — a land of mist-covered tea estates, wildlife-rich grasslands, and river islands that host some of the country's most distinctive living culture.",
+    bestSeason: 'November–April',
+    currency: 'Indian Rupee (INR)',
+    language: 'Assamese, Bengali',
+    timezone: 'GMT+5:30',
+    tags: ['Wildlife', 'Culture', 'Adventure'],
+    coordinates: { lat: 26.2006, lon: 92.9376 },
+    heroImageQuery: 'Assam India tea gardens Brahmaputra',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1544731612-de7f96afe55f?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 24,
+    places: [
+      {
+        id: 'kaziranga-national-park',
+        name: 'Kaziranga National Park',
+        category: 'National Park',
+        description:
+          "Home to two-thirds of the world's one-horned rhinoceros population, this UNESCO site's tall elephant grass and swamps also shelter tigers, wild elephants, and swamp deer.",
+        visitDuration: 'Half day',
+        tip: 'Take the early-morning elephant-back or jeep safari for the closest rhino sightings.',
+        imageQuery: 'Kaziranga National Park rhino Assam India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1544931170-e0fb14a99f30?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'majuli-island',
+        name: 'Majuli Island',
+        category: 'River Island',
+        description:
+          'The world\'s largest river island, formed by the Brahmaputra, is home to centuries-old Vaishnavite monasteries (satras) and mask-making artisan villages.',
+        visitDuration: 'Full day',
+        tip: 'Take the early ferry from Nimatighat — the island shrinks a little more with erosion each year.',
+        imageQuery: 'Majuli Island Assam India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1571536802807-30451e3955d8?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'kamakhya-temple',
+        name: 'Kamakhya Temple',
+        category: 'Temple',
+        description:
+          'One of the oldest of the 51 Shakti Peethas, this hilltop temple in Guwahati draws pilgrims from across India, especially during the Ambubachi Mela festival.',
+        visitDuration: '1–2 hours',
+        tip: 'Expect long queues on Tuesdays and Fridays — arrive right at opening time.',
+        imageQuery: 'Kamakhya Temple Assam India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1609619385002-f40f1df66d43?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'dibrugarh-tea-gardens',
+        name: 'Dibrugarh Tea Gardens',
+        category: 'Tea Estate',
+        description:
+          'Endless rows of manicured tea bushes surround this city, the "Tea Capital of India," where estates welcome visitors for tastings and factory tours.',
+        visitDuration: '2–3 hours',
+        tip: 'Visit during plucking season (March–November) to see the harvest in motion.',
+        imageQuery: 'Dibrugarh tea garden Assam India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'karnataka-hampi',
+    name: 'Karnataka',
+    state: 'Karnataka',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'Boulder-strewn empire ruins, royal palaces, and misty coffee hills',
+    overview:
+      "Karnataka pairs the surreal, boulder-strewn ruins of the Vijayanagara Empire at Hampi with Mysore's regal palaces and the Western Ghats' coffee-scented hill country — a state where a millennium of history sits in plain sight.",
+    bestSeason: 'October–March',
+    currency: 'Indian Rupee (INR)',
+    language: 'Kannada, English',
+    timezone: 'GMT+5:30',
+    tags: ['History', 'Architecture', 'Culture'],
+    coordinates: { lat: 15.335, lon: 76.46 },
+    heroImageQuery: 'Hampi Karnataka India ruins',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1600100397608-59d0d7b1e6e7?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 28,
+    places: [
+      {
+        id: 'hampi-vijayanagara-ruins',
+        name: 'Hampi Vijayanagara Ruins',
+        category: 'Ancient Ruins',
+        description:
+          'A UNESCO World Heritage expanse of temple complexes, royal enclosures, and boulder-strewn landscapes marking the capital of the once-mighty Vijayanagara Empire.',
+        visitDuration: 'Half day',
+        tip: 'Rent a bicycle to cover the ruins spread across several kilometers, or hire an auto-rickshaw for the day.',
+        imageQuery: 'Hampi Vijayanagara ruins Karnataka India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1600100397608-59d0d7b1e6e7?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'virupaksha-temple',
+        name: 'Virupaksha Temple',
+        category: 'Temple',
+        description:
+          "Hampi's still-active temple, dedicated to Lord Shiva, with a nine-tiered gopuram tower that has watched over the sacred town for over 600 years.",
+        visitDuration: '1 hour',
+        tip: 'Climb Hemakuta Hill just behind the temple for the best sunset view over the ruins.',
+        imageQuery: 'Virupaksha Temple Hampi India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1590050433077-e3d4b0037a91?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'mysore-palace',
+        name: 'Mysore Palace',
+        category: 'Palace',
+        description:
+          'The opulent former seat of the Wadiyar dynasty, illuminated by nearly 100,000 lights on Sunday evenings and throughout the ten-day Dasara festival.',
+        visitDuration: '1.5–2 hours',
+        tip: 'Visit on a Sunday evening or during Dasara to see the palace lit up after dark.',
+        imageQuery: 'Mysore Palace Karnataka India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1600100397608-a2f6d1a3c5f4?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'coorg-coffee-estates',
+        name: 'Coorg Coffee Estates',
+        category: 'Plantation',
+        description:
+          'Misty hills draped in coffee and cardamom plantations, waterfalls, and Kodava villages make this region the "Scotland of India."',
+        visitDuration: 'Half day',
+        tip: 'Stay at a homestay on a working estate for the best access to plantation walks.',
+        imageQuery: 'Coorg coffee estate Karnataka India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'rajasthan-jaipur',
+    name: 'Jaipur',
+    state: 'Rajasthan',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: "The Pink City's forts, palaces, and bazaars, unchanged for centuries",
+    overview:
+      "Rajasthan's capital earned its nickname from the terracotta-pink hue painted across its old city in 1876 to welcome royalty. Behind those walls: Mughal-Rajput forts, mirrored palaces, and bazaars selling block-printed textiles exactly as they have for 300 years.",
+    bestSeason: 'October–March',
+    currency: 'Indian Rupee (INR)',
+    language: 'Hindi, Rajasthani',
+    timezone: 'GMT+5:30',
+    tags: ['History', 'Architecture', 'Culture'],
+    coordinates: { lat: 26.9124, lon: 75.7873 },
+    heroImageQuery: 'Jaipur Rajasthan India pink city',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 26,
+    places: [
+      {
+        id: 'amber-fort',
+        name: 'Amber Fort',
+        category: 'Fort',
+        description:
+          'A honey-colored hilltop fort of mirrored halls and courtyards overlooking Maota Lake, built by Raja Man Singh in 1592.',
+        visitDuration: '2 hours',
+        tip: 'Arrive by 8 AM to beat both the heat and the tour-bus crowds.',
+        imageQuery: 'Amber Fort Jaipur India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'hawa-mahal',
+        name: 'Hawa Mahal',
+        category: 'Palace',
+        description:
+          'A five-story pink sandstone facade of 953 intricately latticed windows, built so royal women could observe street life unseen.',
+        visitDuration: '45 minutes',
+        tip: 'Photograph the facade from the rooftop café directly across the street for the best angle.',
+        imageQuery: 'Hawa Mahal Jaipur India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'city-palace-jaipur',
+        name: 'City Palace',
+        category: 'Palace',
+        description:
+          "Still partly home to Jaipur's royal family, this palace complex blends Rajput and Mughal architecture across courtyards, museums, and armories.",
+        visitDuration: '1.5 hours',
+        tip: 'The Royal Grandeur ticket includes access to private chambers otherwise closed to standard visitors.',
+        imageQuery: 'City Palace Jaipur India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'jantar-mantar-jaipur',
+        name: 'Jantar Mantar',
+        category: 'Observatory',
+        description:
+          "A UNESCO-listed collection of 19 monumental astronomical instruments built in 1734, including the world's largest stone sundial, accurate to two seconds.",
+        visitDuration: '1 hour',
+        tip: 'Visit around noon to watch the giant sundial cast its shadow in real time.',
+        imageQuery: 'Jantar Mantar Jaipur India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'kerala',
+    name: 'Kerala',
+    state: 'Kerala',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: "God's Own Country — backwaters, tea hills, and Ayurvedic calm",
+    overview:
+      "A slender strip between the Arabian Sea and the Western Ghats, Kerala threads palm-fringed backwaters, misty tea plantations, and centuries of spice-trade history into one of India's most relaxed itineraries.",
+    bestSeason: 'September–March',
+    currency: 'Indian Rupee (INR)',
+    language: 'Malayalam',
+    timezone: 'GMT+5:30',
+    tags: ['Wellness', 'Beaches', 'Culture'],
+    coordinates: { lat: 9.9312, lon: 76.2673 },
+    heroImageQuery: 'Kerala India backwaters houseboat',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 29,
+    places: [
+      {
+        id: 'alleppey-backwaters',
+        name: 'Alleppey Backwaters',
+        category: 'Backwaters',
+        description:
+          'A maze of palm-lined canals, lagoons, and lakes best explored aboard a traditional kettuvallam houseboat, drifting past village life along the banks.',
+        visitDuration: 'Full day / overnight',
+        tip: 'Book an overnight houseboat stay rather than a day cruise for the full sunset-to-sunrise experience.',
+        imageQuery: 'Alleppey backwaters houseboat Kerala India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'munnar-tea-gardens',
+        name: 'Munnar Tea Gardens',
+        category: 'Tea Estate',
+        description:
+          'Rolling hills blanketed in emerald tea bushes climb toward misty peaks over 1,600 meters high, dotted with colonial-era plantation bungalows.',
+        visitDuration: 'Half day',
+        tip: "Visit the Tea Museum in Munnar town to see how the leaves you're looking at become your morning cup.",
+        imageQuery: 'Munnar tea gardens Kerala India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1524293581917-878a6d017c71?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'fort-kochi',
+        name: 'Fort Kochi',
+        category: 'Historic Neighborhood',
+        description:
+          'A waterfront district layered with Portuguese, Dutch, and British colonial history, best known for its iconic Chinese fishing nets silhouetted at sunset.',
+        visitDuration: '2–3 hours',
+        tip: 'Time your visit for sunset to watch the giant cantilevered fishing nets in action.',
+        imageQuery: 'Fort Kochi Chinese fishing nets India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1590050752117-8e40aac9e1e6?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'periyar-national-park',
+        name: 'Periyar National Park',
+        category: 'National Park',
+        description:
+          'A wildlife sanctuary centered on a scenic man-made lake, home to elephants, tigers, and langurs, best explored on a boat safari or guided forest trek.',
+        visitDuration: 'Half day',
+        tip: "Book the early-morning boat safari for the best chance of spotting elephants at the water's edge.",
+        imageQuery: 'Periyar National Park Kerala India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1580889240911-64d8cbf7d668?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'delhi',
+    name: 'Delhi',
+    state: 'Delhi (NCT)',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'Mughal grandeur and modern India, side by side',
+    overview:
+      "India's capital layers centuries of history into one sprawling metropolis — Mughal-era forts and tombs standing minutes from colonial-era boulevards and a fast-modernizing city. Few places anywhere pack this much history into a single afternoon's walk.",
+    bestSeason: 'October–March',
+    currency: 'Indian Rupee (INR)',
+    language: 'Hindi, English, Punjabi',
+    timezone: 'GMT+5:30',
+    tags: ['History', 'Architecture', 'Culture'],
+    coordinates: { lat: 28.6139, lon: 77.209 },
+    heroImageQuery: 'Delhi India Red Fort Mughal architecture',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 25,
+    places: [
+      {
+        id: 'red-fort',
+        name: 'Red Fort (Lal Qila)',
+        category: 'Fort',
+        description:
+          "This red sandstone Mughal fortress served as the seat of Mughal emperors for two centuries and is where India's Prime Minister raises the flag every Independence Day.",
+        visitDuration: '1.5–2 hours',
+        tip: "Catch the evening sound-and-light show that retells the fort's history after dark.",
+        imageQuery: 'Red Fort Delhi India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'humayuns-tomb',
+        name: "Humayun's Tomb",
+        category: 'Mausoleum',
+        description:
+          'A UNESCO World Heritage garden-tomb of red sandstone and white marble that inspired the design of the Taj Mahal a century later.',
+        visitDuration: '1 hour',
+        tip: 'Visit in the late afternoon for softer light on the sandstone facade.',
+        imageQuery: "Humayun's Tomb Delhi India",
+        fallbackImage:
+          'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'qutub-minar',
+        name: 'Qutub Minar',
+        category: 'Minaret',
+        description:
+          'A 73-meter tapering tower of fluted red sandstone, the tallest brick minaret in the world, begun in 1193 to mark the start of Muslim rule in Delhi.',
+        visitDuration: '1 hour',
+        tip: 'Look for the Iron Pillar in the courtyard — over 1,600 years old and still virtually rust-free.',
+        imageQuery: 'Qutub Minar Delhi India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1587474262946-2b4c9c95f5f0?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'india-gate',
+        name: 'India Gate',
+        category: 'War Memorial',
+        description:
+          'A 42-meter sandstone archway honoring over 84,000 soldiers of the British Indian Army, flanked by wide lawns that come alive with picnicking families at dusk.',
+        visitDuration: '45 minutes',
+        tip: 'Visit in the evening when the monument is lit up and the surrounding lawns fill with life.',
+        imageQuery: 'India Gate Delhi India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1587135941948-670b381f08ce?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'tamil-nadu',
+    name: 'Tamil Nadu',
+    state: 'Tamil Nadu',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'Dravidian temple towers, hill stations, and 2,000 years of living tradition',
+    overview:
+      "Tamil Nadu's towering gopuram gateways mark temple complexes still in daily use after a thousand years, while the Nilgiri hills offer a cool, misty escape from the plains and a coastline of ancient shore temples faces the Bay of Bengal.",
+    bestSeason: 'November–February',
+    currency: 'Indian Rupee (INR)',
+    language: 'Tamil',
+    timezone: 'GMT+5:30',
+    tags: ['History', 'Architecture', 'Culture'],
+    coordinates: { lat: 13.0827, lon: 80.2707 },
+    heroImageQuery: 'Tamil Nadu India temple gopuram',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1600100397608-1b9b0f8b6e1e?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 30,
+    places: [
+      {
+        id: 'meenakshi-amman-temple',
+        name: 'Meenakshi Amman Temple',
+        category: 'Temple',
+        description:
+          'A dazzling complex of 14 gopuram towers covered in thousands of painted sculptures, built around a temple site over 2,500 years old, in the heart of Madurai.',
+        visitDuration: '2 hours',
+        tip: 'Go barefoot as required, and visit during the evening aarti ceremony for the full atmosphere.',
+        imageQuery: 'Meenakshi Amman Temple Madurai India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1621996659490-3e4c4c4c1a1a?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'shore-temple-mahabalipuram',
+        name: 'Shore Temple',
+        category: 'Ancient Temple',
+        description:
+          'A UNESCO-listed granite temple carved directly on the Bay of Bengal shoreline in the 8th century, among the oldest structural stone temples in South India.',
+        visitDuration: '1 hour',
+        tip: "Combine with the nearby Five Rathas and Arjuna's Penance rock carvings in the same visit.",
+        imageQuery: 'Shore Temple Mahabalipuram India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1600100397608-1b9b0f8b6e1e?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'ooty-hill-station',
+        name: 'Ooty Hill Station',
+        category: 'Hill Station',
+        description:
+          'A former British hill retreat in the Nilgiris, ringed by tea plantations and eucalyptus groves, reached by a toy train that climbs through 16 tunnels.',
+        visitDuration: 'Full day',
+        tip: 'Ride the UNESCO-listed Nilgiri Mountain Railway toy train for the journey, not just the destination.',
+        imageQuery: 'Ooty hill station Nilgiri India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1580889240911-64d8cbf7d668?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'brihadeeswarar-temple',
+        name: 'Brihadeeswarar Temple',
+        category: 'Ancient Temple',
+        description:
+          'A UNESCO World Heritage Chola-dynasty temple completed in 1010 CE, crowned by a 66-meter granite tower topped with a single 80-ton capstone.',
+        visitDuration: '1 hour',
+        tip: "Look for the temple's shadow-minimizing tower design — a feat of 11th-century engineering.",
+        imageQuery: 'Brihadeeswarar Temple Thanjavur India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1621996659490-3e4c4c4c1a1a?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'uttar-pradesh',
+    name: 'Uttar Pradesh',
+    state: 'Uttar Pradesh',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'The Taj Mahal, the Ganges, and the soul of Mughal India',
+    overview:
+      "Home to both the Taj Mahal and the sacred ghats of Varanasi, Uttar Pradesh holds two of India's most powerful images: a marble monument to eternal love, and a river city where life and ritual play out in public view along the Ganges.",
+    bestSeason: 'October–March',
+    currency: 'Indian Rupee (INR)',
+    language: 'Hindi',
+    timezone: 'GMT+5:30',
+    tags: ['History', 'Architecture', 'Culture'],
+    coordinates: { lat: 27.1767, lon: 78.0081 },
+    heroImageQuery: 'Taj Mahal Agra Uttar Pradesh India',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 26,
+    places: [
+      {
+        id: 'taj-mahal',
+        name: 'Taj Mahal',
+        category: 'Mausoleum',
+        description:
+          'A white marble mausoleum built by Emperor Shah Jahan for his wife Mumtaz Mahal, widely considered the finest example of Mughal architecture in the world.',
+        visitDuration: '2–3 hours',
+        tip: 'Visit at sunrise — the marble shifts through soft pink and gold tones and the crowds are thinnest.',
+        imageQuery: 'Taj Mahal Agra India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'agra-fort',
+        name: 'Agra Fort',
+        category: 'Fort',
+        description:
+          'A red sandstone Mughal fortress on the Yamuna River where Shah Jahan was later imprisoned by his own son, with a clear view of the Taj Mahal he built.',
+        visitDuration: '1.5 hours',
+        tip: 'Look for Musamman Burj, the tower where Shah Jahan spent his final years gazing at the Taj.',
+        imageQuery: 'Agra Fort India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1585506942812-c1e35a5f4b1a?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'varanasi-ghats',
+        name: 'Varanasi Ghats',
+        category: 'Riverfront',
+        description:
+          "Stone steps line the Ganges for miles in Hinduism's holiest city, where pilgrims bathe at dawn and centuries-old rites are performed in public along the riverbank.",
+        visitDuration: 'Half day',
+        tip: 'Take a sunrise boat ride along the ghats, then return at dusk for the Ganga Aarti fire ceremony.',
+        imageQuery: 'Varanasi ghats Ganges India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'fatehpur-sikri',
+        name: 'Fatehpur Sikri',
+        category: 'Historic City',
+        description:
+          'A perfectly preserved red-sandstone Mughal capital, abandoned just 15 years after Emperor Akbar built it, reportedly due to water shortages.',
+        visitDuration: '1.5–2 hours',
+        tip: 'Visit Buland Darwaza, the "Gate of Magnificence," among the tallest gateways in the world.',
+        imageQuery: 'Fatehpur Sikri India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1585506942812-c1e35a5f4b1a?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'himachal-pradesh',
+    name: 'Himachal Pradesh',
+    state: 'Himachal Pradesh',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'Pine-covered ridgelines and prayer flags in the Western Himalayas',
+    overview:
+      "Former British hill stations, Tibetan Buddhist monasteries, and snow-dusted trekking valleys stack up through Himachal Pradesh's ridgelines, offering some of the most accessible high-altitude escapes in the Himalayas.",
+    bestSeason: 'March–June & September–November',
+    currency: 'Indian Rupee (INR)',
+    language: 'Hindi, Pahari',
+    timezone: 'GMT+5:30',
+    tags: ['Alpine', 'Adventure', 'Culture'],
+    coordinates: { lat: 31.1048, lon: 77.1734 },
+    heroImageQuery: 'Himachal Pradesh India Himalayas mountains',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 15,
+    places: [
+      {
+        id: 'shimla-ridge',
+        name: 'Shimla Ridge & Mall Road',
+        category: 'Hill Station',
+        description:
+          'The former summer capital of British India, its colonial architecture and pedestrian Mall Road unfold along a pine-covered ridge with sweeping Himalayan views.',
+        visitDuration: 'Half day',
+        tip: 'Take the UNESCO-listed toy train from Kalka for a scenic approach into town.',
+        imageQuery: 'Shimla Ridge Himachal Pradesh India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'solang-valley',
+        name: 'Solang Valley',
+        category: 'Valley',
+        description:
+          'A glacier-fringed valley near Manali offering paragliding and zorbing in summer, and skiing in winter, against a backdrop of snow-capped peaks.',
+        visitDuration: 'Half day',
+        tip: 'Visit early morning for the clearest mountain views before afternoon cloud cover rolls in.',
+        imageQuery: 'Solang Valley Manali India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1626621341517-a2e5c2e2b0c8?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'mcleod-ganj',
+        name: 'McLeod Ganj',
+        category: 'Monastery Town',
+        description:
+          'Home to the Dalai Lama and the Tibetan government-in-exile, this hillside town blends Tibetan Buddhist culture with sweeping Dhauladhar mountain views.',
+        visitDuration: 'Half day',
+        tip: "Visit the Tsuglagkhang Complex, the Dalai Lama's temple, and stay for a butter tea in the market.",
+        imageQuery: 'McLeod Ganj Dharamshala India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1626621340661-4c0a94b53c8b?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'rohtang-pass',
+        name: 'Rohtang Pass',
+        category: 'Mountain Pass',
+        description:
+          'A high-altitude pass at nearly 3,980 meters connecting the Kullu Valley to Lahaul-Spiti, blanketed in snow for much of the year.',
+        visitDuration: 'Full day',
+        tip: 'Check road-permit and weather conditions before heading up — the pass often closes without notice.',
+        imageQuery: 'Rohtang Pass Himachal Pradesh India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    id: 'maharashtra',
+    name: 'Maharashtra',
+    state: 'Maharashtra',
+    country: 'India',
+    countryCode: 'IN',
+    continent: 'Asia',
+    flag: '🇮🇳',
+    tagline: 'Ancient cave temples and the relentless energy of Mumbai',
+    overview:
+      "Maharashtra spans India's most cosmopolitan city and, a few hours inland, some of the finest rock-cut cave art on Earth — Buddhist, Hindu, and Jain monuments carved directly into basalt cliffs over 1,500 years ago.",
+    bestSeason: 'November–February',
+    currency: 'Indian Rupee (INR)',
+    language: 'Marathi, Hindi',
+    timezone: 'GMT+5:30',
+    tags: ['History', 'Architecture', 'Culture'],
+    coordinates: { lat: 19.076, lon: 72.8777 },
+    heroImageQuery: 'Mumbai Maharashtra India Gateway of India',
+    fallbackHeroImage:
+      'https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=1974&auto=format&fit=crop',
+    avgTemp: 28,
+    places: [
+      {
+        id: 'gateway-of-india',
+        name: 'Gateway of India',
+        category: 'Monument',
+        description:
+          "A basalt archway built in 1924 to commemorate King George V's visit, now Mumbai's most iconic waterfront landmark facing the Arabian Sea.",
+        visitDuration: '45 minutes',
+        tip: 'Take the ferry from here to Elephanta Island rather than booking a ferry elsewhere in the city.',
+        imageQuery: 'Gateway of India Mumbai',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'ajanta-caves',
+        name: 'Ajanta Caves',
+        category: 'Ancient Caves',
+        description:
+          'Thirty rock-cut Buddhist caves dating to the 2nd century BCE, famous for elaborate murals and sculptures depicting the life of the Buddha.',
+        visitDuration: 'Half day',
+        tip: 'Bring a flashlight or phone light — the painted interiors are dimly lit to preserve the artwork.',
+        imageQuery: 'Ajanta Caves Maharashtra India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1590050433077-e3d4b0037a91?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'ellora-caves',
+        name: 'Ellora Caves',
+        category: 'Ancient Caves',
+        description:
+          'Thirty-four rock-cut Buddhist, Hindu, and Jain monuments carved side by side, crowned by the Kailasa Temple — a single monolithic structure hewn from one rock.',
+        visitDuration: 'Half day',
+        tip: "Don't miss Cave 16, the Kailasa Temple — it was carved top-down out of a single basalt cliff.",
+        imageQuery: 'Ellora Caves Kailasa Temple India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1600100397608-59d0d7b1e6e7?q=80&w=1974&auto=format&fit=crop',
+      },
+      {
+        id: 'elephanta-caves',
+        name: 'Elephanta Caves',
+        category: 'Ancient Caves',
+        description:
+          'A short ferry ride from Mumbai, these 5th-century rock-cut caves house a monumental three-faced sculpture of Shiva carved from solid basalt.',
+        visitDuration: 'Half day (incl. ferry)',
+        tip: 'Take the first ferry out to avoid both the midday heat and the crowds.',
+        imageQuery: 'Elephanta Caves Mumbai India',
+        fallbackImage:
+          'https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?q=80&w=1974&auto=format&fit=crop',
+      },
+    ],
+  },
 ];
 
 export const allTags = Array.from(

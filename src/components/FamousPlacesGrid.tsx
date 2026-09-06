@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
-import { Clock, Lightbulb } from 'lucide-react';
+import { Clock, Lightbulb, MapPin } from 'lucide-react';
 import type { Place } from '../types';
 import { RemoteImage } from './ui/RemoteImage';
+import { buildGoogleMapsUrl } from '../utils/geo';
 
 interface FamousPlacesGridProps {
   places: Place[];
+  destinationName: string;
 }
 
-export function FamousPlacesGrid({ places }: FamousPlacesGridProps) {
+export function FamousPlacesGrid({ places, destinationName }: FamousPlacesGridProps) {
   return (
     <div className="flex gap-5 overflow-x-auto pb-4 pt-1 [-webkit-overflow-scrolling:touch]" role="list">
       {places.map((place, i) => (
@@ -45,6 +47,16 @@ export function FamousPlacesGrid({ places }: FamousPlacesGridProps) {
                 <Lightbulb className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                 {place.tip}
               </span>
+              <a
+                href={place.mapsUrl ?? buildGoogleMapsUrl(place.name, destinationName)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${place.name} on Google Maps (opens in a new tab)`}
+                className="flex items-center justify-center gap-1.5 rounded-full border border-obsidian-700 py-1.5 font-medium text-obsidian-300 transition hover:border-amber-400/50 hover:text-amber-200"
+              >
+                <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+                View on Google Maps
+              </a>
             </div>
           </div>
         </motion.article>

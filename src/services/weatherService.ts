@@ -72,12 +72,18 @@ export async function geocodeLocation(
 ): Promise<Coordinates & { name: string; country: string }> {
   if (!API_KEY) throw new Error('missing-key');
   const res = await fetch(
-    `${GEO_URL}/direct?q=${encodeURIComponent(query)}&limit=1&appid=${API_KEY}`
+    `${GEO_URL}/direct?q=${encodeURIComponent(query)}&limit=5&appid=${API_KEY}`
   );
   if (!res.ok) throw new Error(`Geocoding failed: ${res.status}`);
   const data = await res.json();
   if (!data.length) throw new Error('Location not found');
-  return { lat: data[0].lat, lon: data[0].lon, name: data[0].name, country: data[0].country };
+
+  // Prefer an Indian match when one exists among the candidates, so domestic
+  // place names (e.g. "Goa", "Assam") don't resolve to an unrelated overseas
+  // location that happens to share the same name.
+  const best = data.find((candidate: { country: string }) => candidate.country === 'IN') ?? data[0];
+
+  return { lat: best.lat, lon: best.lon, name: best.name, country: best.country };
 }
 
 export async function fetchWeatherByCoords(

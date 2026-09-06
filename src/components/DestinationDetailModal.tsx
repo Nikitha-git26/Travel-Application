@@ -126,6 +126,7 @@ export function DestinationDetailModal({ destination, onClose, onPlanTrip }: Des
                   <span className="text-lg leading-none">{destination.flag}</span>
                   <span className="flex items-center gap-1">
                     <MapPin className="h-3.5 w-3.5" />
+                    {destination.state ? `${destination.state}, ` : ''}
                     {destination.country}
                     {destination.continent ? ` · ${destination.continent}` : ''}
                   </span>
@@ -182,7 +183,7 @@ export function DestinationDetailModal({ destination, onClose, onPlanTrip }: Des
                     <PlaceCardSkeleton />
                   </div>
                 ) : (
-                  <FamousPlacesGrid places={displayDestination.places} />
+                  <FamousPlacesGrid places={displayDestination.places} destinationName={displayDestination.name} />
                 )}
               </div>
 

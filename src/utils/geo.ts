@@ -15,6 +15,12 @@ export function countryCodeToName(code: string): string {
   }
 }
 
+/** Builds a Google Maps search URL for a place, scoped by its destination name for disambiguation. */
+export function buildGoogleMapsUrl(placeName: string, destinationName: string): string {
+  const query = `${placeName} ${destinationName}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 export function slugify(value: string): string {
   return value
     .toLowerCase()

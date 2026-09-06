@@ -157,7 +157,7 @@ Also list 3-4 genuinely notable, real attractions or places to visit there, each
         description: p.description,
         visitDuration: p.visitDuration,
         tip: p.tip,
-        imageQuery: `${p.name} ${name}`,
+        imageQuery: `${p.name}, ${name}, ${country} landmark`,
         fallbackImage: PLACE_FALLBACK_IMAGES[i % PLACE_FALLBACK_IMAGES.length],
       })),
     };
@@ -185,7 +185,7 @@ function buildFallbackProfile(name: string, country: string, cacheKey: string): 
         description: `The heart of ${name}, where local life and history intersect.`,
         visitDuration: '1-2 hours',
         tip: 'Ask locals for their favorite nearby spot — it often beats the guidebook picks.',
-        imageQuery: `${name} landmark`,
+        imageQuery: `${name}, ${country} landmark`,
         fallbackImage: PLACE_FALLBACK_IMAGES[0],
       },
       {
@@ -195,7 +195,7 @@ function buildFallbackProfile(name: string, country: string, cacheKey: string): 
         description: `A lively spot to sample regional food and crafts in ${name}.`,
         visitDuration: '1 hour',
         tip: 'Go with a light appetite and bring some small cash.',
-        imageQuery: `${name} market`,
+        imageQuery: `${name}, ${country} market`,
         fallbackImage: PLACE_FALLBACK_IMAGES[1],
       },
       {
@@ -205,7 +205,7 @@ function buildFallbackProfile(name: string, country: string, cacheKey: string): 
         description: `A well-loved spot for taking in the surrounding views of ${name}.`,
         visitDuration: '45 minutes',
         tip: 'Best visited near sunrise or sunset for the softest light.',
-        imageQuery: `${name} scenic view`,
+        imageQuery: `${name}, ${country} scenic view`,
         fallbackImage: PLACE_FALLBACK_IMAGES[2],
       },
     ],

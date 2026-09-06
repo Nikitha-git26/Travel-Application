@@ -33,7 +33,13 @@ configured, via deterministic fallback data and curated imagery.
 - **Destination Explorer** — Debounced instant search (by name, country,
   or continent) plus multi-select interest filter pills (Beaches,
   Culture, Alpine, Gastronomy, and more), with skeleton loaders and a
-  polished empty state.
+  polished empty state. The curated catalog spans 20 destinations across
+  six continents, including ten Indian states and heritage regions (Goa,
+  Assam, Karnataka, Rajasthan, Kerala, Delhi, Tamil Nadu, Uttar Pradesh,
+  Himachal Pradesh, and Maharashtra).
+- **Google Maps Integration** — Every notable place card links out to a
+  scoped Google Maps search for that exact landmark, opening in a new
+  tab.
 - **Dynamic Global Search** — Search any place on Earth, not just the
   curated catalog. Unmatched queries resolve live via the OpenWeather
   Geocoding API, fetch real-time weather and imagery, and generate an
