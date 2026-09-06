@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Clock, Lightbulb, Sunrise, Sunset, Sun, Utensils, Printer, Save } from 'lucide-react';
+import { Clock, Lightbulb, MapPin, Sunrise, Sunset, Sun, Utensils, Printer, Save } from 'lucide-react';
 import type { Itinerary, ItinerarySlot } from '../types';
+import { buildGoogleMapsUrl } from '../utils/geo';
 
 interface ItineraryViewProps {
   itinerary: Itinerary;
@@ -99,13 +100,35 @@ export function ItineraryView({ itinerary, onSave, isSaved }: ItineraryViewProps
                               <Lightbulb className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                               {activity.tip}
                             </p>
+                            <a
+                              href={buildGoogleMapsUrl(activity.title, itinerary.destinationName)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`Open ${activity.title} in Google Maps (opens in a new tab)`}
+                              className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-amber-300 transition hover:text-amber-200 print:hidden"
+                            >
+                              <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+                              Open in Google Maps
+                            </a>
                           </div>
                         ))}
                       </div>
 
-                      <div className="mt-3 flex items-center gap-1.5 rounded-lg bg-obsidian-800/60 px-3 py-2 text-xs text-obsidian-300">
-                        <Utensils className="h-3.5 w-3.5 text-obsidian-500" />
-                        Suggested: {slot.mealSuggestion}
+                      <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-lg bg-obsidian-800/60 px-3 py-2 text-xs text-obsidian-300">
+                        <span className="flex items-center gap-1.5">
+                          <Utensils className="h-3.5 w-3.5 text-obsidian-500" />
+                          Suggested: {slot.mealSuggestion}
+                        </span>
+                        <a
+                          href={buildGoogleMapsUrl(slot.mealSuggestion, itinerary.destinationName)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Open ${slot.mealSuggestion} in Google Maps (opens in a new tab)`}
+                          className="flex items-center gap-1.5 font-medium text-amber-300 transition hover:text-amber-200 print:hidden"
+                        >
+                          <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+                          Open in Google Maps
+                        </a>
                       </div>
                     </div>
                   </div>
