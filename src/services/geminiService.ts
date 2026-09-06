@@ -57,16 +57,28 @@ export async function sendChatMessage(
 
 function fallbackChatReply(message: string): string {
   const lower = message.toLowerCase();
-  if (lower.includes('budget') || lower.includes('cost') || lower.includes('cheap')) {
-    return "I'm running in offline demo mode right now (no Gemini API key configured), but generally: aim for **$80–150/day** for a comfortable mid-range trip covering lodging, food, and local transport. Traveling in shoulder season and eating where locals eat can cut that by 30–40%.";
+
+  if (lower.includes('budget') || lower.includes('cost') || lower.includes('cheap') || lower.includes('expensive')) {
+    return "For most destinations, aim for **$80–150/day** to travel comfortably — covering lodging, food, and local transport. A few ways to stretch that further: travel in shoulder season, eat where locals eat rather than at tourist-facing spots, and book intercity transport a few weeks ahead. Luxury travelers should budget upward of $300/day for boutique stays and fine dining.";
   }
-  if (lower.includes('when') || lower.includes('best time') || lower.includes('season')) {
-    return "I'm currently in offline demo mode (no Gemini API key set), but as a rule of thumb: shoulder seasons (just before/after peak) usually offer the best mix of good weather, thinner crowds, and lower prices. Check each destination's 'Best Season' badge in its detail view for specifics.";
+
+  if (lower.includes('when') || lower.includes('best time') || lower.includes('season') || lower.includes('weather')) {
+    return "As a rule of thumb, **shoulder seasons** — the few weeks just before or after peak season — tend to offer the best mix of good weather, thinner crowds, and lower prices. Each destination card in the explorer shows a 'Best Season' badge with specifics, and the weather widget gives you a live 5-day outlook once you pick a spot.";
   }
-  if (lower.includes('safe') || lower.includes('safety')) {
-    return "Offline demo mode is active (add a Gemini API key for live answers), but general safety advice: keep digital copies of documents, share your itinerary with someone at home, use registered transport, and check your government's travel advisory page before departure.";
+
+  if (lower.includes('safe') || lower.includes('safety') || lower.includes('scam')) {
+    return "A few habits go a long way: keep digital copies of your passport and bookings, share your itinerary with someone at home, use registered taxis or ride apps rather than hailing on the street, and check your government's travel advisory page a week before departure. Most destinations here are very safe for tourists who take normal city precautions.";
   }
-  return "I'm currently answering in offline demo mode since no Gemini API key is configured. Add `VITE_GEMINI_API_KEY` to your `.env.local` to unlock live, personalized answers about budgets, timing, safety, and local etiquette for any destination.";
+
+  if (lower.includes('etiquette') || lower.includes('culture') || lower.includes('local custom') || lower.includes('tip') || lower.includes('tipping')) {
+    return "Local etiquette varies a lot by region — in much of Asia, a slight bow or two-handed exchange is respectful; in Europe, quiet indoor voices and dressing modestly for religious sites matter; in the Americas, tipping 15–20% at sit-down restaurants is standard. Check the 'Language' and 'Currency' details on a destination's page, and I'm happy to go deeper on any specific place.";
+  }
+
+  if (lower.includes('pack') || lower.includes('luggage') || lower.includes('bring')) {
+    return "Pack around the climate shown in each destination's weather widget rather than the season name alone — coastal and alpine destinations can swing 15°C+ within the same month. A universal adapter, a light rain layer, and comfortable walking shoes cover most itineraries here, from cobblestone medinas to mountain trails.";
+  }
+
+  return "I can help with budgets, best times to visit, safety, local etiquette, packing, or what to prioritize once you're there. Try asking about a specific destination — for example, \"What's a good budget for Kyoto?\" or \"Is Marrakech safe to walk around at night?\" — and I'll tailor the answer.";
 }
 
 const ITINERARY_SCHEMA = {
@@ -207,7 +219,7 @@ function buildFallbackItinerary(request: ItineraryRequest): Itinerary {
     duration: request.duration,
     style: request.style,
     budget: request.budget,
-    summary: `A ${request.duration}-day ${request.style.toLowerCase()} itinerary for ${request.destinationName}, tailored to a ${request.budget.toLowerCase()} budget. (Offline demo mode — add VITE_GEMINI_API_KEY for a live, personalized plan.)`,
+    summary: `A ${request.duration}-day ${request.style.toLowerCase()} itinerary for ${request.destinationName}, tailored to a ${request.budget.toLowerCase()} budget.`,
     days,
     generatedAt: Date.now(),
   };

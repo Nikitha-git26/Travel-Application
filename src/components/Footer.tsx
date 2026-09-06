@@ -9,7 +9,7 @@ export function Footer() {
           <span className="font-display text-sm font-medium">Aura Voyage</span>
         </div>
         <p className="text-xs text-obsidian-500">
-          A designesthetics assignment project — travel exploration, curated by design.
+          Curated Explorations · Built with passion for modern travelers · © 2026 Aura Voyage
         </p>
       </div>
     </footer>

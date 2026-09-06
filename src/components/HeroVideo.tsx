@@ -35,7 +35,7 @@ export function HeroVideo({ onExplore }: HeroVideoProps) {
           className="mb-6 flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-amber-200/90 backdrop-blur-sm"
         >
           <Compass className="h-3.5 w-3.5" aria-hidden="true" />
-          designesthetics presents
+          Curated Journeys · Editorial Travel Guide
         </motion.div>
 
         <motion.h1

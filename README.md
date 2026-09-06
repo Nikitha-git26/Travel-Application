@@ -1,11 +1,8 @@
-# Travel Application - designesthetics Frontend Assignment
+# Aura Voyage — Travel, Curated by Design
 
 **[Live Demo Link](https://your-vercel-deployment-url.vercel.app)**
 
-**Aura Voyage — travel, curated by design.**
-
-An immersive, editorial-grade travel exploration platform built for the
-**designesthetics** front-end engineering assignment — combining a
+An immersive, editorial-grade travel exploration platform — combining a
 cinematic hero experience, a live destination explorer, real-time weather,
 location awareness, and an AI travel assistant with structured itinerary
 generation, all wrapped in a luxury, high-craft interface.
@@ -14,8 +11,8 @@ generation, all wrapped in a luxury, high-craft interface.
 
 ## Design Philosophy
 
-This project was built to the **designesthetics** brief: travel software
-that feels like a design object, not a form. Every surface — the looping
+This project embraces a simple philosophy: travel software should feel
+like a design object, not a form. Every surface — the looping
 video hero, the warm obsidian/amber/emerald palette, the serif display
 type paired with a clean sans body, the glass-blurred overlays, the
 staggered Framer Motion reveals — is meant to evoke a boutique travel
@@ -176,8 +173,8 @@ npm run preview  # preview the production build locally
 
 **Nikitha** — [github.com/Nikitha-git26](https://github.com/Nikitha-git26)
 
-Built as a **designesthetics** front-end engineering assignment
-submission.
+Designed and built as a standalone, production-grade travel exploration
+platform.
 
 ## Acknowledgements
 
